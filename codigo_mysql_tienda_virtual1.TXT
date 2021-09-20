@@ -1,0 +1,56 @@
+create database Tienda_virtual1;
+use tienda_virtual1;
+create table Clientes(
+Id_cliente varchar(15) not null,
+Nom_cliente varchar(30) not null,
+Tel_cliente double not null,
+Dire_cliente varchar(25) not null,
+constraint Id_cliente_pk primary key (Id_cliente));
+
+create table Proveedor(
+Nit_proveedor varchar(15) not null,
+Nom_proveedor varchar(30) not null,
+Tel_proveedor double not null,
+Dire_proveedor varchar(25) not null,
+constraint Proveedor_pk primary key (Nit_proveedor));
+
+create table Detalle_ventas(
+Num_factura_venta varchar(15) not null,
+Cod_producto varchar(30) not null,
+Des_producto varchar(15) not null,
+Can_vendida double not null,
+Precio_venta double not null,
+Venta_total double not null,
+constraint  Detalle_ventas_pk primary key (Num_factura_venta));
+
+create table Encabezado_ventas(
+Num_factura_venta varchar(15) not null,
+Id_cliente varchar(15) not null,
+Fecha_venta date not null,
+constraint  Encabezado_venta_pk primary key (Num_factura_venta, Id_cliente),
+constraint  Encabezado_Num_factura_venta_fk foreign key (Num_factura_venta) references Detalle_ventas(Num_factura_venta),
+constraint  Encabezado_Id_cliente_fk foreign key (Id_cliente) references Clientes(Id_cliente));
+
+create table Detalle_compras(
+Num_factura_compra varchar(15) not null,
+Cod_producto varchar(30) not null,
+Des_producto varchar(15) not null,
+Can_producto double not null,
+Precio_compra double not null,
+Cost_pedido double not null,
+constraint  Detalle_compras_pk primary key (Num_factura_compra));
+
+create table Encabezado_compras(
+Num_factura_compra varchar(15) not null,
+Nit_proveedor varchar(15) not null,
+Fecha_compra date not null,
+constraint  Encabezado_compras_pk primary key (Num_factura_compra, Nit_proveedor),
+constraint  Encabezado_Num_factura_compra_fk foreign key (Num_factura_compra) references Detalle_compras(Num_factura_compra),
+constraint  Encabezado_Nit_proveedor_fk foreign key (Nit_proveedor) references Proveedor(Nit_proveedor));
+
+create table Inventario(
+Cod_producto varchar(30) not null,
+Des_producto varchar(15) not null,
+Cant_existente double not null,
+constraint Inventario_pk primary key (Cod_producto));
+
