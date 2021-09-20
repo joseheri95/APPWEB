@@ -1,0 +1,8 @@
+insert into clientes values("1", "alfredo","8931802","cra 4 oeste #12a67");
+insert into clientes values("2", "camilioa","8945672","calle 1 #12a6789");
+insert into clientes values("3", "carlos_benavides","8931702","calle 5 #12a45");
+insert into clientes values("4", "juan pacheco","317332502","carrera 3 norte #3-a2");
+insert into clientes values("5", "daniela lopez","321832469","calle 2 oeste #43-23");
+insert into clientes values("6", "emiliano zapata","315948442","torres de confandi");
+insert into clientes values("7", "jaiver rodriguez","8930202","av 3 ne #12a4");
+insert into clientes values("8", "jose oswaldo","312395873","calle 5 #23-3");
